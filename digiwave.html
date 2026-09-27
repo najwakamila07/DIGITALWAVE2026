@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sweet Delights Bakery - Profil Usaha</title>
+    <style>
+        :root {
+            --primary: #c97a7e;
+            --primary-dark: #a8585c;
+            --secondary: #fdf6f0;
+            --accent: #d4a373;
+            --text-main: #33272a;
+            --text-muted: #594a4e;
+            --white: #ffffff;
+            --wa-green: #25d366;
+            --wa-dark: #128c7e;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--secondary);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        /* Navigasi */
+        header {
+            background: var(--white);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 18px 24px;
+        }
+
+        .brand {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+            letter-spacing: 0.5px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            transition: color 0.2s;
+        }
+
+        nav a:hover {
+            color: var(--primary);
+        }
+
+        /* Hero Banner */
+        .hero {
+            background: linear-gradient(135deg, #fceceb 0%, #f7d8d5 100%);
+            text-align: center;
+            padding: 70px 20px;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            font-size: 1.15rem;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 24px auto;
+        }
+
+        .btn-cta {
+            display: inline-block;
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 28px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .btn-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Container Umum */
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 60px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 10px;
+        }
+
+        .section-desc {
+            text-align: center;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+        }
+
+        /* Bagian Profil Toko */
+        .about-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 36px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+            margin-bottom: 30px;
+        }
+
+        .about-card p {
+            margin-bottom: 16px;
+            font-size: 1.05rem;
+            color: var(--text-muted);
+        }
+
+        /* Grid Produk */
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 6px 16px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .product-info {
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .product-info h3 {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .product-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            flex-grow: 1;
+        }
+
+        .product-price {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+
+        .btn-wa {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background-color: var(--wa-green);
+            color: var(--white);
+            text-decoration: none;
+            padding: 10px 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: background-color 0.2s;
+        }
+
+        .btn-wa:hover {
+            background-color: var(--wa-dark);
+        }
+
+        /* Lokasi & Alamat */
+        .address-box {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 32px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+        }
+
+        .address-details h4 {
+            font-size: 1.2rem;
+            color: var(--primary-dark);
+            margin-bottom: 12px;
+        }
+
+        .address-details p {
+            color: var(--text-muted);
+            margin-bottom: 10px;
+        }
+
+        .map-placeholder {
+            width: 100%;
+            min-height: 200px;
+            background: #eee;
+            border-radius: 12px;
+            border: 0;
+        }
+
+        /* Footer */
+        footer {
+            background: #2b2123;
+            color: #d1c5c7;
+            text-align: center;
+            padding: 24px 20px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2rem; }
+            .address-box { grid-template-columns: 1fr; }
+            nav ul { display: none; } /* Simpel navigasi mobile */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navigasi Header -->
+    <header>
+        <nav>
+            <a href="#" class="brand">🍰 Sweet Delights</a>
+            <ul>
+                <li><a href="#tentang">Tentang Kami</a></li>
+                <li><a href="#produk">Menu Kue</a></li>
+                <li><a href="#alamat">Alamat</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Banner Utama -->
+    <section class="hero">
+        <h1>Kelezatan Manis di Setiap Gigitan</h1>
+        <p>Dibuat secara handmade dengan bahan-bahan premium pilihan tanpa pengawet. Sajian hangat untuk momen istimewa Anda.</p>
+        <a href="#produk" class="btn-cta">Lihat Menu Pilihan</a>
+    </section>
+
+    <main class="container">
+
+        <!-- Profil Toko -->
+        <section id="tentang">
+            <h2 class="section-title">Tentang Kami</h2>
+            <p class="section-desc">Kisah singkat dedikasi kami memanggang kebahagiaan</p>
+            <div class="about-card">
+                <p><strong>Sweet Delights Bakery</strong> berdiri sejak tahun 2021 berawal dari kecintaan kami dalam menyajikan kue rumahan bercita rasa autentik. Setiap kue dipanggang setiap pagi (<em>freshly baked daily</em>) untuk memastikan kelembutan dan aroma terbaik sampai ke meja Anda.</p>
+                <p>Kami melayani pesanan untuk berbagai keperluan, seperti ulang tahun, hantaran pernikahan, arisan keluarga, hingga hampers hari raya. Resep kami memadukan mentega berkualitas tinggi dengan kebersihan standar dapur profesional.</p>
+            </div>
+        </section>
+
+        <!-- Katalog Produk -->
+        <section id="produk" style="margin-top: 50px;">
+            <h2 class="section-title">Menu Favorit</h2>
+            <p class="section-desc">Pilih kue favorit Anda dan klik pesan untuk langsung tersambung ke admin kami</p>
+            
+            <div class="product-grid">
+                <!-- Produk 1 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?auto=format&fit=crop&w=600&q=80" alt="Chocolate Fudge Cake">
+                    <div class="product-info">
+                        <h3>Chocolate Fudge Cake</h3>
+                        <p>Kue cokelat pekat lembut dengan lapisan ganache dark chocolate Belgia yang lezat dan tidak bikin enek.</p>
+                        <div class="product-price">Rp 185.000</div>
+                        <!-- Ganti nomor 6281234567890 dengan nomor WhatsApp asli -->
+                        <a href="https://wa.me/6281234567890?text=Halo%20Sweet%20Delights,%20saya%20mau%20pesan%20Chocolate%20Fudge%20Cake" target="_blank" class="btn-wa">
+                            Pesan via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Produk 2 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1535141192574-5d4897c13136?auto=format&fit=crop&w=600&q=80" alt="Classic Red Velvet">
+                    <div class="product-info">
+                        <h3>Classic Red Velvet</h3>
+                        <p>Spons velvet lembut bernuansa merah dipadu frosting cream cheese premium yang gurih dan manis pas.</p>
+                        <div class="product-price">Rp 195.000</div>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Sweet%20Delights,%20saya%20mau%20pesan%20Classic%20Red%20Velvet" target="_blank" class="btn-wa">
+                            Pesan via WhatsApp
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Produk 3 -->
+                <div class="product-card">
+                    <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=600&q=80" alt="Artisan Butter Croissant">
+                    <div class="product-info">
+                        <h3>Butter Croissant (Box isi 4)</h3>
+                        <p>Pastry khas Perancis yang renyah berlapis di luar namun airy dan lembut beraroma mentega di dalam.</p>
+                        <div class="product-price">Rp 75.000</div>
+                        <a href="https://wa.me/6281234567890?text=Halo%20Sweet%20Delights,%20saya%20mau%20pesan%20Butter%20Croissant%20Box" target="_blank" class="btn-wa">
+                            Pesan via WhatsApp
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Alamat & Kontak -->
+        <section id="alamat" style="margin-top: 50px;">
+            <h2 class="section-title">Kunjungi Outlet Kami</h2>
+            <p class="section-desc">Datang dan nikmati aroma roti fresh langsung dari oven kami</p>
+            
+            <div class="address-box">
+                <div class="address-details">
+                    <h4>Alamat Toko:</h4>
+                    <p>Jl. Mawar No. 12, Kelurahan Kebon Sari<br>Kecamatan Manis, Kota Surabaya<br>Jawa Timur 60241</p>
+                    
+                    <h4 style="margin-top: 18px;">Jam Operasional:</h4>
+                    <p>Senin - Sabtu: 08.00 - 20.00 WIB<br>Minggu: 09.00 - 17.00 WIB</p>
+                    
+                    <h4 style="margin-top: 18px;">Telepon / WhatsApp:</h4>
+                    <p>+62 812-3456-7890</p>
+                </div>
+                
+                <div>
+                    <!-- Embedded Google Maps sederhana -->
+                    <iframe class="map-placeholder" 
+                        src="https://maps.google.com/maps?q=Surabaya&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+                        allowfullscreen="" 
+                        loading="lazy">
+                    </iframe>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Sweet Delights Bakery. Seluruh hak cipta dilindungi.</p>
+    </footer>
+
+</body>
+</html>
